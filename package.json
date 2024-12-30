@@ -10,6 +10,9 @@
     "bootstrap": "npm run example && npm install && npm pods",
     "build": "rimraf ./dist && tsc"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/diiix7/react-native-pos-print"
@@ -52,7 +55,8 @@
     "react": "*",
     "react-native": "*"
   },
-  "author": "intechnity",
+  "author": "diiix7",
+  "email": "loickadjiwanou1111@gmail.com",
   "homepage": "https://github.com/diiix7/react-native-pos-print#readme",
   "license": "ISC"
 }
