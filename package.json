@@ -1,0 +1,58 @@
+{
+  "name": "@intechnity/react-native-thermal-printer",
+  "version": "0.1.0",
+  "description": "A React Native Library to support USB/BLE/Net printer.",
+  "main": "dist/index.js",
+  "source": "dist/index.js",
+  "scripts": {
+    "pods": "cd example && pod-install --quiet",
+    "example": "npm --prefix ./example install",
+    "bootstrap": "npm run example && npm install && npm pods",
+    "build": "rimraf ./dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Intechnity-com/react-native-thermal-printer.git"
+  },
+  "files": [
+    "dist",
+    "android",
+    "ios",
+    "react-native-thermal-printer.podspec"
+  ],
+  "keywords": [
+    "react-native",
+    "thermal",
+    "printer",
+    "bluetooth",
+    "net",
+    "printer",
+    "rn",
+    "android"
+  ],
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "iconv-lite": "^0.6.3",
+    "react-xml-parser": "^1.1.8",
+    "string_decoder": "^1.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.1",
+    "@types/react": "^18.0.24",
+    "@types/react-test-renderer": "^18.0.0",
+    "pod-install": "^0.1.10",
+    "react": "^18.2.0",
+    "react-native": "^0.71.8",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.4"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-native": "*",
+    "react": "*",
+    "react-native": "*"
+  },
+  "author": "intechnity",
+  "homepage": "https://github.com/Intechnity-com/react-native-thermal-printer#readme",
+  "license": "ISC"
+}

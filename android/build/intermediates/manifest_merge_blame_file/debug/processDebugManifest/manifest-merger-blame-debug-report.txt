@@ -1,0 +1,23 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pinmi.react.printer" >
+4
+5    <uses-sdk android:minSdkVersion="21" />
+6
+7    <uses-permission android:name="android.permission.INTERNET" />
+7-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:4:5-67
+7-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:4:22-64
+8    <uses-permission android:name="android.permission.BLUETOOTH" />
+8-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:5:5-68
+8-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:5:22-65
+9    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+9-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:6:5-74
+9-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:6:22-71
+10    <uses-permission android:name="android.hardware.usb.UsbAccessory" />
+10-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:7:5-73
+10-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:7:22-70
+11    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+11-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:8:5-76
+11-->/Users/loickadjiwanou/Documents/Projets/Expo/posprinting/node_modules/@intechnity/react-native-thermal-printer/android/src/main/AndroidManifest.xml:8:22-73
+12
+13</manifest>

@@ -1,0 +1,13 @@
+import { NativeEventEmitter } from 'react-native';
+import { NetPrinterWrapper } from './printers/net-printer';
+import { USBPrinterWrapper } from './printers/usb-printer';
+import { BLEPrinterWrapper } from './printers/ble-printer';
+export declare const USBPrinter: USBPrinterWrapper;
+export declare const BLEPrinter: BLEPrinterWrapper;
+export declare const NetPrinter: NetPrinterWrapper;
+export declare const NetPrinterEventEmitter: NativeEventEmitter;
+export * from './enums/thermal-printer-events.enum';
+export * from './models/print-options';
+export * from './models/ble-printer-identity';
+export * from './models/net-printer-identity';
+export * from './models/usb-printer-identity';
