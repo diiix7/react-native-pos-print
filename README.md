@@ -18,6 +18,11 @@ yarn add @diiix7/react-native-pos-print
 
 ## Example Usage for BLE print
 
+- **Bluetooth Initialization**: Set up Bluetooth for connecting to thermal printers.
+- **Device Discovery**: Search for nearby Bluetooth thermal printers.
+- **Printer Connection**: Connect to a selected device using its MAC address.
+- **Print Capability**: Print formatted text using the specified options.
+
 Below is an example demonstrating how to use the library to initialize Bluetooth, search for devices, connect to a printer, and print a sample text:
 
 ```javascript
@@ -135,14 +140,161 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Features
+## Example Usage for USB print
 
-- **Bluetooth Initialization**: Set up Bluetooth for connecting to thermal printers.
-- **Device Discovery**: Search for nearby Bluetooth thermal printers.
-- **Printer Connection**: Connect to a selected device using its MAC address.
-- **Print Capability**: Print formatted text using the specified options.
+Below is an example demonstrating how to use the library to print a sample text via USB:
+
+```javascript
+import React, { Component } from "react";
+import { USBPrinter } from "@intechnity/react-native-thermal-printer";
+import { Platform, View, Text, TouchableOpacity, Button } from "react-native";
+
+export default class PrinterComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      printers: [],
+      currentPrinter: null,
+    };
+  }
+
+  async componentDidMount() {
+    if (Platform.OS === "android") {
+      await USBPrinter.init();
+      const availablePrinters = await USBPrinter.getDeviceList();
+
+      this.setState({
+        printers: availablePrinters,
+      });
+    }
+  }
+
+  async connectPrinter(printer) {
+    await USBPrinter.connectPrinter(printer.vendorId, printer.productId);
+
+    this.setState({
+      currentPrinter: printer,
+    });
+  }
+
+  print() {
+    USBPrinter.print(`
+  <Printout>
+    <Text align='center' fontWidth='1' fontHeight='1'>Example text</Text>
+    <NewLine />
+    <Text align='right' fontWidth='1' fontHeight='1' bold='0'>Second line</Text>
+  </Printout>`);
+  }
+
+  getPrinterDescription(printer) {
+    return `deviceName: ${printer.deviceName}, vendorId: ${printer.vendorId}, productId: ${printer.productId}`;
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.state.printers.map((printer) => (
+          <TouchableOpacity
+            key={printer.deviceName}
+            onPress={() => this.connectPrinter(printer)}
+          >
+            <Text>{this.getPrinterDescription(printer)}</Text>
+          </TouchableOpacity>
+        ))}
+        <Button title="Print" onPress={() => this.print()} />
+      </View>
+    );
+  }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+};
+```
+
+## Example Usage for Net print
+
+Below is an example demonstrating how to use the library to print a sample text via Net:
+
+```javascript
+import React, { Component } from "react";
+import { NetPrinter } from "@intechnity/react-native-thermal-printer";
+import { View, Text, TouchableOpacity, Button } from "react-native";
+
+export default class PrinterComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      printers: [],
+      currentPrinter: null,
+    };
+  }
+
+  async componentDidMount() {
+    await NetPrinter.init();
+    const availablePrinters = [
+      { deviceName: "test", host: "192.168.1.1", port: 9100 },
+    ];
+
+    this.setState({
+      printers: availablePrinters,
+    });
+  }
+
+  async connectPrinter(printer) {
+    const connectedPrinter = await NetPrinter.connectPrinter(
+      printer.host,
+      printer.port
+    );
+
+    this.setState({
+      currentPrinter: connectedPrinter,
+    });
+  }
+
+  print() {
+    NetPrinter.print(`
+  <Printout>
+    <Text align='center' fontWidth='1' fontHeight='1'>Example text</Text>
+    <NewLine />
+    <Text align='right' fontWidth='1' fontHeight='1' bold='0'>Second line</Text>
+  </Printout>`);
+  }
+
+  getPrinterDescription(printer) {
+    return `deviceName: ${printer.deviceName}, host: ${printer.host}, port: ${printer.port}`;
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.state.printers.map((printer) => (
+          <TouchableOpacity
+            key={printer.deviceName}
+            onPress={() => this.connectPrinter(printer)}
+          >
+            <Text>{this.getPrinterDescription(printer)}</Text>
+          </TouchableOpacity>
+        ))}
+        <Button title="Print" onPress={() => this.print()} />
+      </View>
+    );
+  }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+};
+```
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
