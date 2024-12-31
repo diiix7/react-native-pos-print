@@ -146,7 +146,7 @@ Below is an example demonstrating how to use the library to print a sample text 
 
 ```javascript
 import React, { Component } from "react";
-import { USBPrinter } from "@intechnity/react-native-thermal-printer";
+import { USBPrinter } from "@diiix7/react-native-pos-print";
 import { Platform, View, Text, TouchableOpacity, Button } from "react-native";
 
 export default class PrinterComponent extends Component {
@@ -222,7 +222,7 @@ Below is an example demonstrating how to use the library to print a sample text 
 
 ```javascript
 import React, { Component } from "react";
-import { NetPrinter } from "@intechnity/react-native-thermal-printer";
+import { NetPrinter } from "@diiix7/react-native-pos-print";
 import { View, Text, TouchableOpacity, Button } from "react-native";
 
 export default class PrinterComponent extends Component {
